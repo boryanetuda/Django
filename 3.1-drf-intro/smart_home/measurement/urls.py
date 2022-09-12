@@ -1,15 +1,11 @@
-from django.urls import path, include
-from django.contrib import admin
-from rest_framework.routers import DefaultRouter
+from django.urls import path
 
-from .views import SensorViewSet, MeasurementViewSet
+from .views import SensorCreateAPIView, SensorUpdateAPIView, MeasurementCreateAPIView
 
-router = DefaultRouter()
-router.register('sensors', SensorViewSet)
-router.register('Measurement', MeasurementViewSet)
 
 urlpatterns = [
     # TODO: зарегистрируйте необходимые маршруты
-    path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
+    path('sensor/', SensorCreateAPIView.as_view(), name='create_sensor'),
+    path('sensor/<pk>/', SensorUpdateAPIView.as_view(), name='update_sensor'),
+    path('measurement/', MeasurementCreateAPIView.as_view(), name='add_measurement'),
 ]
