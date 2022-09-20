@@ -13,4 +13,4 @@ class Measurement(models.Model):
     created_data = models.DateTimeField(auto_now_add=True)
     updated_data = models.DateTimeField(auto_now=True)
     image = models.ImageField(null=True, upload_to='media')
-    sensor = models.ForeignKey(Sensor, on_delete=models.CASCADE, related_name='measurments')
+    sensor = models.ForeignKey(Sensor, on_delete=models.CASCADE, related_name='measurements')
